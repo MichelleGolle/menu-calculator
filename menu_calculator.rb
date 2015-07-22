@@ -1,3 +1,7 @@
+require 'bigdecimal'
+require 'bigdecimal/util'
+require 'pry'
+
 class MenuCalculator
 
   attr_accessor :file
@@ -7,10 +11,20 @@ class MenuCalculator
   end
 
   def total
-    file[0].gsub('$', '').to_f * 100
+    BigDecimal.new(file[0].gsub('$', ''))
   end
 
-calculator = MenuCalculator.new("sample.txt")
-puts calculator.total
+  def parse
+    hash = Hash.new
+    file.map do |line|
+      split_line = line.split(',')
+      if split_line.length > 1
+        food = split_line[0]
+        price = split_line[1]
+        hash[food] = BigDecimal.new(price.gsub('$', ''))
+      end
+    end
+    hash
+  end
 
 end
