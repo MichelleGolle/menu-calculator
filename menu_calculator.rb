@@ -31,18 +31,14 @@ class MenuCalculator
 
   def calculate
     parse.each do |key, value|
-      # binding.pry
-      return if @running_total == total
+      return @items if @running_total == total
       if @running_total + value <= total
         @items << key
         @running_total += value
         calculate
       end
-      if @running_total == 0
-        puts "No available combinations"
-      else
-        puts "Total Bill: $#{@running_total.to_f} Items: #{@items}"
-      end
     end
   end
 end
+
+#work on renaming and refactoring

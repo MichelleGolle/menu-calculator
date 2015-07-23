@@ -21,7 +21,6 @@ class MenuCalculatorTest < Minitest::Test
   end
 
   def test_it_can_return_a_list_of_matching_items
-    skip
     assert_equal ["mixed fruit", "mixed fruit", "mixed fruit", "mixed fruit", "mixed fruit", "mixed fruit", "mixed fruit"], @calculator.calculate
   end
 end
