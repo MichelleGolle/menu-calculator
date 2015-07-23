@@ -4,10 +4,12 @@ require 'pry'
 
 class MenuCalculator
 
-  attr_accessor :file
+  attr_accessor :file, :items
 
   def initialize(file)
     @file = IO.readlines(file)
+    @running_total = BigDecimal.new(0)
+    @items = []
   end
 
   def total
@@ -27,4 +29,20 @@ class MenuCalculator
     hash
   end
 
+  def calculate
+    parse.each do |key, value|
+      # binding.pry
+      return if @running_total == total
+      if @running_total + value <= total
+        @items << key
+        @running_total += value
+        calculate
+      end
+      if @running_total == 0
+        puts "No available combinations"
+      else
+        puts "Total Bill: $#{@running_total.to_f} Items: #{@items}"
+      end
+    end
+  end
 end
