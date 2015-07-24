@@ -1,0 +1,20 @@
+$20.50
+steak, $11.00
+side salad,$3.35
+hot wings,$3.55
+mozzarella sticks,$4.20
+sampler plate,$5.80
+burger, $6.35
+pizza, $4.75
+mixed veggies, $2.50
+pretzel, $3.40
+popcorn shrimp, $4.85
+soda, $1.25
+juice, $1.45
+mixed fruit,$2.95
+french fries,$2.75
+curry, $7.50
+pasta, $5.99
+ice cream, $2.45
+cookie, $0.99
+milkshake, $3.00
