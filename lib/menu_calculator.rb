@@ -37,14 +37,18 @@ class MenuCalculator
         items_combo
       end
     end
+    output
+  end
+
+  private
+
+  def output
     if @items.empty?
       output = "No available combinations"
     else
       output = @items
     end
-    output
   end
-
 end
 
 calculator = MenuCalculator.new('../data/bigger_sample.txt')
