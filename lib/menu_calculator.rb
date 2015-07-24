@@ -1,6 +1,5 @@
 require 'bigdecimal'
 require 'bigdecimal/util'
-require 'pry'
 
 class MenuCalculator
 
@@ -12,11 +11,11 @@ class MenuCalculator
     @items = []
   end
 
-  def total
+  def goal_total
     BigDecimal.new(file[0].gsub('$', ''))
   end
 
-  def parse
+  def menu_items_hash
     hash = Hash.new
     file.map do |line|
       split_line = line.split(',')
@@ -29,16 +28,24 @@ class MenuCalculator
     hash
   end
 
-  def calculate
-    parse.each do |key, value|
-      return @items if @running_total == total
-      if @running_total + value <= total
+  def items_combo
+    menu_items_hash.each do |key, value|
+      return @items if @running_total == goal_total
+      if @running_total + value <= goal_total
         @items << key
         @running_total += value
-        calculate
+        items_combo
       end
     end
+    if @items.empty?
+      output = "No available combinations"
+    else
+      output = @items
+    end
+    output
   end
+
 end
 
-#work on renaming and refactoring
+calculator = MenuCalculator.new('sample.txt')
+puts calculator.items_combo
