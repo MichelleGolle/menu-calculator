@@ -47,5 +47,5 @@ class MenuCalculator
 
 end
 
-calculator = MenuCalculator.new('sample.txt')
+calculator = MenuCalculator.new('../data/bigger_sample.txt')
 puts calculator.items_combo
