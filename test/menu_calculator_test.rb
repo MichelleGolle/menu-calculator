@@ -1,11 +1,11 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require_relative 'menu_calculator'
+require_relative '../lib/menu_calculator'
 
 class MenuCalculatorTest < Minitest::Test
 
   def setup
-    @calculator = MenuCalculator.new("sample.txt")
+    @calculator = MenuCalculator.new("../data/sample.txt")
   end
 
   def test_it_reads_a_file
@@ -25,7 +25,7 @@ class MenuCalculatorTest < Minitest::Test
   end
 
   def test_it_can_return_a_message_if_there_are_no_matches
-    calculator = MenuCalculator.new('sample_no_match.txt')
+    calculator = MenuCalculator.new('../data/sample_no_match.txt')
     assert_equal "No available combinations", calculator.items_combo
   end
 end
